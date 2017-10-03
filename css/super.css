@@ -1,0 +1,281 @@
+@font-face {
+  src: url("../fonts/Eutelia.otf");
+  font-family: Eutelia; }
+@font-face {
+  src: url("../fonts/Lumnia Regular.ttf");
+  font-family: Lumnia; }
+@font-face {
+  src: url("../fonts/Lumnia Bold.ttf");
+  font-family: Lumnia-Bold; }
+html, body {
+  padding: 0px;
+  margin: 0px; }
+
+html {
+  background: url("../img/buffalo.jpg") center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw; }
+
+#body {
+  order: 1;
+  z-index: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 90vh;
+  width: 700px;
+  padding: 35px 0px;
+  font-family: Eutelia !important;
+  margin: 0px auto; }
+  #body:before, #body:after {
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    content: '';
+    display: block;
+    min-height: 24px; }
+  #body .left {
+    width: 50%; }
+  #body .container {
+    padding: 15px; }
+  #body .poop {
+    border: 1px solid #d3d3d3;
+    border-radius: 3px;
+    background: white;
+    padding: 15px;
+    margin: 10px 0; }
+  #body #welcome {
+    display: block;
+    height: auto;
+    text-align: center;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    transition: height 0.5s;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    #body #welcome .logo {
+      width: auto;
+      height: 60px;
+      padding: 15px 0 10px 0; }
+    #body #welcome .form-box {
+      height: auto; }
+      #body #welcome .form-box #login, #body #welcome .form-box #registration {
+        display: none; }
+        #body #welcome .form-box #login.active, #body #welcome .form-box #registration.active {
+          display: block; }
+      #body #welcome .form-box #error {
+        font-weight: 600;
+        color: red;
+        font-size: 14px; }
+      #body #welcome .form-box p {
+        font-size: 18px;
+        font-weight: bold;
+        color: #919191;
+        padding-bottom: 15px; }
+      #body #welcome .form-box input {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 5px;
+        margin-bottom: 20px;
+        height: 36px;
+        border: 1px solid #c0c0c0;
+        border-radius: 5px;
+        font-family: inherit;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+        #body #welcome .form-box input.submit {
+          background: #ff671d;
+          font-weight: 700;
+          color: white; }
+        #body #welcome .form-box input:focus {
+          outline: none;
+          border: 1px solid #7d7d7d; }
+          #body #welcome .form-box input:focus.submit {
+            border: 1px inset #7D7D7D; }
+      #body #welcome .form-box #p {
+        position: relative; }
+        #body #welcome .form-box #p #forgot {
+          position: absolute;
+          right: 5px;
+          top: 0px;
+          height: 36px;
+          padding: 0px 10px;
+          text-align: center;
+          font-size: 16px;
+          line-height: 36px;
+          text-decoration: none; }
+      #body #welcome .form-box button {
+        float: right;
+        font-size: inherit;
+        padding: 7px 10px;
+        background: #ff671d;
+        border: 0px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 0px 2px black;
+        -moz-box-shadow: 0px 0px 2px black;
+        box-shadow: 0px 0px 2px black;
+        color: white; }
+        #body #welcome .form-box button:active {
+          background: #CC531A; }
+  #body #change {
+    text-align: center; }
+    #body #change #signup, #body #change #signin {
+      color: #ff671d;
+      cursor: pointer;
+      cursor: hand;
+      overflow: hidden;
+      width: 35px; }
+  #body #links {
+    text-align: center; }
+    #body #links img {
+      width: 45%;
+      height: auto;
+      margin: 15px 0px;
+      min-width: 150px;
+      border: 1px solid white;
+      border-radius: 5px; }
+  #body #iphone {
+    position: relative;
+    height: 500px;
+    width: 249px;
+    background: url("../img/iphone.png") center no-repeat;
+    background-size: 249px 500px; }
+    #body #iphone .img {
+      visibility: hidden;
+      position: absolute;
+      top: 57px;
+      left: 16px;
+      height: 386px;
+      width: 217px;
+      opacity: 0;
+      background-size: 217px 386px !important;
+      -webkit-transition: opacity 1s ease-out;
+      -moz-transition: opacity 1s ease-out;
+      -ms-transition: opacity 1s ease-out;
+      -o-transition: opacity 1s ease-out;
+      transition: opacity 1s ease-out; }
+      #body #iphone .img.active {
+        z-index: 100;
+        visibility: visible;
+        opacity: 1;
+        -webkit-transition: opacity 1s ease-in;
+        -moz-transition: opacity 1s ease-in;
+        -ms-transition: opacity 1s ease-in;
+        -o-transition: opacity 1s ease-in;
+        transition: opacity 1s ease-in; }
+      #body #iphone .img.past {
+        visibility: hidden;
+        transition: 0s;
+        transition-delay: 1s; }
+
+footer {
+  display: block;
+  background: rgba(255, 255, 255, 0.7);
+  order: 2;
+  z-index: 1;
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+  footer .container {
+    display: block;
+    height: inherit;
+    width: 550px;
+    margin: 0px auto;
+    padding-top: 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    footer .container div, footer .container ul, footer .container li {
+      display: inline-block;
+      vertical-align: middle; }
+    footer .container .title {
+      font-family: Lumnia;
+      font-size: 17px; }
+    footer .container ul {
+      padding: 0px;
+      margin: 0px; }
+      footer .container ul li {
+        padding: 0px 10px;
+        font-weight: 700;
+        font-family: Eutelia; }
+        footer .container ul li a {
+          text-decoration: none;
+          color: black; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+@media screen and (max-height: 750px) {
+  #body {
+    display: block;
+    min-height: 470px; }
+    #body:before, #body:after {
+      display: block;
+      min-height: 10px; }
+
+  footer {
+    height: auto;
+    min-height: 50px; } }
+@media only screen and (max-width: 770px) {
+  #iphone {
+    display: none; }
+
+  #body {
+    width: 400px;
+    margin: 0px auto; }
+    #body .container .left {
+      width: 100%;
+      float: none; }
+
+  footer .container {
+    width: 90%; } }
+@media only screen and (max-width: 405px) {
+  html {
+    background: white; }
+
+  #body {
+    z-index: 1;
+    width: 100%;
+    margin: 0px;
+    padding-top: 20%;
+    clear: both; }
+    #body:before, #body:after {
+      content: none; }
+    #body .container {
+      width: 100%;
+      margin: 0px;
+      padding: 0px; }
+      #body .container .left {
+        width: 100%;
+        margin: 0px; }
+        #body .container .left .poop {
+          margin: 0px;
+          border: 0px;
+          border-radius: 0px; }
+    #body .left, #body .right {
+      float: none; }
+
+  footer {
+    clear: both; }
+    footer .left, footer .right {
+      float: none;
+      width: 100%;
+      text-align: center;
+      padding: 15px 0px; } }
+
+/*# sourceMappingURL=super.css.map */

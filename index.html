@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NAMEOFSITE</title>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="NAMEOFSITE"/>
+    <meta name="author" content="/r/liqu0r"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/super.css"/>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        var drop = false;
+        $(document).ready(function(){
+            images = $(".img");
+            setInterval(cycle, 2000);
+
+            $(body).click(function(){
+                if(drop){
+                    $("#dropdown").slideToggle("fast", function(){
+                        drop = false;
+                        $("#options").show();
+                    });
+                }
+            });
+
+            $("#options").click(function(){
+                $("#options").hide();
+                $("#dropdown").slideToggle("fast", function(){
+                    drop = true;
+                });
+            });
+
+            $("#submitLogin").click(login);
+
+        });
+
+        var image = 0;
+        var images;
+        const changeR = "New to NAMEOFSITE? <span id='signup' onclick='showRegister()'>Sign Up</span>";
+        const changeS = "Already have an account? <span id='signin' onclick='showLogin();'>Sign In</span>";
+
+        function cycle(){
+            var old1 = $(images[(image-1+4)%4]);
+            var old = $(images[image]);
+            image++;
+            image = image % 4;
+
+            var news = $(images[image]);
+
+            $(old1).removeClass("past");
+            $(old).removeClass("active");
+            $(old).addClass("past");
+            $(news).addClass("active");
+        }
+
+        function showRegister(){
+            $("#login").removeClass("active");
+            $("#registration").addClass("active");
+            $("#iphone").css("margin-top", "75px");
+            $("#change").html(changeS);
+        }
+
+        function showLogin(){
+            $("#registration").removeClass("active");
+            $("#login").addClass("active");
+            $("#iphone").css("margin-top", "0px");
+            $("#change").html(changeR);
+        }
+
+        function login(){
+            var jack = $.ajax({
+                url: "php/signin.php",
+                type: 'post',
+                data: $('#login').serialize(),
+                success: function(data) {
+                   $("#error").html(data);
+                }
+            });
+        }
+
+        function register(){
+            var jack = $.ajax({
+                url: "php/register.php",
+                type: 'post',
+                data: $('#registration').serialize(),
+                success: function(data) {
+                   $("#error").html(data);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <div id="body">
+        <div class="container">
+            <div class="left">
+                <div class="poop" id="welcome">
+                    <img class="logo" src="http://placehold.it/488x150.png">
+
+                    <div class="form-box">
+
+                        <form onsubmit="event.preventDefault();" id="login" class="active">
+
+                            <input type="text" name="email" placeholder="Email" required />
+                            <div id="p">
+                                <input id="loginPassword" type="password" name="password" placeholder="Password" required/>
+                                <a id="forgot" href="account/password/reset/">Forgot?</a>
+                            </div>
+                            <input type="submit" class="submit" onclick="login();" value="Log In"/>
+
+                        </form>
+
+                        <form id="registration" onsubmit="event.preventDefault();">
+                            <p>Take your living experience to the next level with NAMEOFSITE.</p>
+                            <input type="text" name="name" placeholder="Full Name" required />
+                            <input type="text" name="email" placeholder="Email" required />
+                            <input type="password" name="password" placeholder="Password" />
+                            <input type="password" name="confirm" placeholder="Comfirm" />
+                            <input type="submit" class="submit" onclick="register();" value="Sign Up" />
+
+                        </form>
+
+                        <div id="error">
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="poop" id="change">
+                    New to NAMEOFSITE? <span id='signup' onclick='showRegister()'>Sign Up</span>
+                </div>
+                <div id="links">
+                    <a href="http://apple.com"><img src="img/ios.png" href="apple.com"/></a>
+                    <a href="http://android.com"><img src="img/android.png" href="google.com"/></a>
+                </div>
+            </div>
+
+            <div class="right" id="iphone">
+                <img src="img/img.png" class="img active" />
+                <img src="img/img1.png" class="img" />
+                <img src="img/img2.png" class="img" />
+                <img src="img/img3.png" class="img" />
+            </div>
+       </div>
+    </div>
+
+
+
+
+    <footer>
+        <div class="container">
+            <ul class="left">
+                <li><a href="about/">About</a></li>
+                <li><a href="support/">Support</a></li>
+                <li><a href="jobs/">Jobs</a></li>
+            </ul>
+            <div class="title right">© 2017 NAMEOFSITE</div>
+        </div>
+    </footer>
+
+</body>
+</html>
